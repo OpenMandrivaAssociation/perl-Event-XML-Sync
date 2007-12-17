@@ -15,7 +15,6 @@ Url:		ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/
 Buildrequires:	perl-devel
 %endif
 Buildarch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This module may be used to developp application wrappers to be
