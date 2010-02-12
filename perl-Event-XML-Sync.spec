@@ -1,21 +1,22 @@
-%define module	Event-XML-Sync
-%define name	perl-%{module}
-%define version 1.0
-%define release %mkrel 8
+%define upstream_name	 Event-XML-Sync
+%define upstream_version 1.0
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 9
+
 Summary:	A Perl module to run synchronized XML stream
 License:	GPL
 Group:		Development/Perl
-Source:		ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/%{module}-%{version}.tar.bz2
 Url:		ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/
+Source0:	ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 Buildrequires:	perl-devel
 %endif
+
 Buildarch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module may be used to developp application wrappers to be
@@ -34,14 +35,14 @@ some kind of synchronization to correlate the returned
 information with the input XML stream.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-%{__make} test
+%make test
 
 %install
 rm -rf %{buildroot}
@@ -55,4 +56,3 @@ rm -rf %{buildroot}
 %doc README
 %{perl_vendorlib}/Event
 %{_mandir}/*/*
-
