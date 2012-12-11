@@ -1,9 +1,9 @@
 %define upstream_name	 Event-XML-Sync
 %define upstream_version 1.0
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 9
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	10
 
 Summary:	A Perl module to run synchronized XML stream
 License:	GPL
@@ -11,12 +11,8 @@ Group:		Development/Perl
 Url:		ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/
 Source0:	ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/%{upstream_name}-%{upstream_version}.tar.bz2
 
-%if %{mdkversion} < 1010
-Buildrequires:	perl-devel
-%endif
-
-Buildarch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildArch:	noarch
 
 %description
 This module may be used to developp application wrappers to be
@@ -38,21 +34,62 @@ information with the input XML stream.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean 
-rm -rf %{buildroot}
-
 %files 
-%defattr(-,root,root)
 %doc README
 %{perl_vendorlib}/Event
 %{_mandir}/*/*
+
+%changelog
+* Fri Feb 12 2010 Jérôme Quelin <jquelin@mandriva.org> 1.0.0-9mdv2010.1
++ Revision: 504814
+- rebuild using %%perl_convert_version
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 1.0-8mdv2010.0
++ Revision: 430428
+- rebuild
+
+* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 1.0-7mdv2009.0
++ Revision: 256815
+- rebuild
+
+* Thu Dec 20 2007 Olivier Blin <oblin@mandriva.com> 1.0-5mdv2008.1
++ Revision: 135841
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sat Sep 15 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.0-5mdv2008.0
++ Revision: 86357
+- rebuild
+
+
+* Thu Aug 31 2006 Guillaume Rousse <guillomovitch@mandriva.org> 1.0-4mdv2007.0
+- Rebuild
+
+* Tue Dec 20 2005 Guillaume Rousse <guillomovitch@mandriva.org> 1.0-3mdk
+- spec cleanup
+- %%mkrel
+
+* Mon Dec 20 2004 Guillaume Rousse <guillomovitch@mandrake.org> 1.0-2mdk
+- fix buildrequires in a backward compatible way
+
+* Fri Jul 23 2004 Guillaume Rousse <guillomovitch@mandrake.org> 1.0-1mdk 
+- new version
+- rpmbuildupdate aware
+
+* Wed Feb 25 2004 Guillaume Rousse <guillomovitch@mandrake.org> 0.1-2mdk
+- fixed dir ownership (distlint)
+
+* Thu Jan 08 2004 Guillaume Rousse <guillomovitch@mandrake.org> 0.1-1mdk
+- first mdk release
+
