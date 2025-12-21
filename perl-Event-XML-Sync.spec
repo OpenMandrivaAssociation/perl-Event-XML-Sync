@@ -11,6 +11,7 @@ Group:		Development/Perl
 Url:		ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/
 Source0:	ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/%{upstream_name}-%{upstream_version}.tar.bz2
 
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildArch:	noarch
 
