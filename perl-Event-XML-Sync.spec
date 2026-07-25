@@ -2,8 +2,8 @@
 %define upstream_version 1.0
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	12
+Version:	%{upstream_version}
+Release:	13
 
 Summary:	A Perl module to run synchronized XML stream
 License:	GPL
