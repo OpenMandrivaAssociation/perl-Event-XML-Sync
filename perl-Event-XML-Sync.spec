@@ -1,15 +1,13 @@
 %define upstream_name	 Event-XML-Sync
-%define upstream_version 1.0
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	13
+Version:	1.0
+Release:	14
 
 Summary:	A Perl module to run synchronized XML stream
 License:	GPL
 Group:		Development/Perl
 Url:		ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/
-Source0:	ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	ftp://ftp.inria.fr/INRIA/Atoll/Eric.Clergerie/TAG/%{upstream_name}-%{version}.tar.bz2
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -32,7 +30,7 @@ some kind of synchronization to correlate the returned
 information with the input XML stream.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -52,9 +50,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %changelog
 * Fri Feb 12 2010 Jérôme Quelin <jquelin@mandriva.org> 1.0.0-9mdv2010.1
 + Revision: 504814
-- rebuild using %%perl_convert_version
-
-* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 1.0-8mdv2010.0
+- rebuild using %1.0 Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 1.0-8mdv2010.0
 + Revision: 430428
 - rebuild
 
