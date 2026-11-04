@@ -1,7 +1,7 @@
 %define upstream_name	 Event-XML-Sync
 Name:		perl-%{upstream_name}
 Version:	1.0
-Release:	14
+Release:	15
 
 Summary:	A Perl module to run synchronized XML stream
 License:	GPL
@@ -46,47 +46,3 @@ perl Makefile.PL INSTALLDIRS=vendor
 %doc README
 %{perl_vendorlib}/Event
 %{_mandir}/*/*
-
-%changelog
-* Fri Feb 12 2010 Jérôme Quelin <jquelin@mandriva.org> 1.0.0-9mdv2010.1
-+ Revision: 504814
-- rebuild using %1.0 Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 1.0-8mdv2010.0
-+ Revision: 430428
-- rebuild
-
-* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 1.0-7mdv2009.0
-+ Revision: 256815
-- rebuild
-
-* Thu Dec 20 2007 Olivier Blin <oblin@mandriva.com> 1.0-5mdv2008.1
-+ Revision: 135841
-- restore BuildRoot
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - kill re-definition of %%buildroot on Pixel's request
-
-* Sat Sep 15 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.0-5mdv2008.0
-+ Revision: 86357
-- rebuild
-
-
-* Thu Aug 31 2006 Guillaume Rousse <guillomovitch@mandriva.org> 1.0-4mdv2007.0
-- Rebuild
-
-* Tue Dec 20 2005 Guillaume Rousse <guillomovitch@mandriva.org> 1.0-3mdk
-- spec cleanup
-- %%mkrel
-
-* Mon Dec 20 2004 Guillaume Rousse <guillomovitch@mandrake.org> 1.0-2mdk
-- fix buildrequires in a backward compatible way
-
-* Fri Jul 23 2004 Guillaume Rousse <guillomovitch@mandrake.org> 1.0-1mdk 
-- new version
-- rpmbuildupdate aware
-
-* Wed Feb 25 2004 Guillaume Rousse <guillomovitch@mandrake.org> 0.1-2mdk
-- fixed dir ownership (distlint)
-
-* Thu Jan 08 2004 Guillaume Rousse <guillomovitch@mandrake.org> 0.1-1mdk
-- first mdk release
-
